@@ -5,7 +5,9 @@
 package frc.robot;
 
 
-
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -29,7 +31,7 @@ public class Robot extends TimedRobot {
   PWMSparkMax Upperintake = new PWMSparkMax(6);
   PWMSparkMax ShooterU = new PWMSparkMax(7); 
 
-
+  private final DoubleSolenoid Armsolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 4, 5);
 
   Servo exampleServo1 = new Servo(9);
 
@@ -154,14 +156,22 @@ public class Robot extends TimedRobot {
       if (controller2.getYButton()){
         exampleServo1.setPosition(1);
     
-      } else if(controller2.getXButton()){
-        exampleServo1.setPosition(0.3);
-      
       } else {
         exampleServo1.setPosition(0.5);
   
       }
 
+      if(controller2.getAButtonPressed()){
+
+        Armsolenoid.set(Value.kForward);
+    
+    }   else if (controller2.getAButtonReleased()){
+    
+        Armsolenoid.set(Value.kReverse);
+       
+    } else {
+        Armsolenoid.set(Value.kOff);
+    }
 
    
 
