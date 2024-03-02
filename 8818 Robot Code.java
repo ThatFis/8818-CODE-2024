@@ -30,6 +30,7 @@ public class Robot extends TimedRobot {
   PWMSparkMax Backintake = new PWMSparkMax(2);
   PWMSparkMax Upperintake = new PWMSparkMax(6);
   PWMSparkMax ShooterU = new PWMSparkMax(7); 
+  PWMSparkMax Note = new PWMSparkMax(0);
 
   private final DoubleSolenoid Armsolenoid = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 4, 5);
 
@@ -172,6 +173,15 @@ public class Robot extends TimedRobot {
     } else {
         Armsolenoid.set(Value.kOff);
     }
+
+        }
+      if(controller1.getYButtonPressed()){
+        Note.set(.80);
+      }
+      if(controller1.getXButtonPressed()){
+        Note.set(-80);
+      }
+
 
    
 
