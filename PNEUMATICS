@@ -1,0 +1,20 @@
+//REVPH  is a REV PNEUMATIC HUB//
+
+
+
+
+  private boolean solenoidOpen = false;
+
+
+      if(controller1.getAButtonPressed()){
+
+        solenoidOpen = !solenoidOpen;
+    
+    }   
+    if (solenoidOpen){
+    
+        Armsolenoid.set(Value.kForward);
+       
+    } else {
+        Armsolenoid.set(Value.kReverse);
+    }
