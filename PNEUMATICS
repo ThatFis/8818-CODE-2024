@@ -1,3 +1,11 @@
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+
+  private final DoubleSolenoid Armsolenoid = new DoubleSolenoid(PneumaticsModuleType.REVPH, 7, 8);
+
+//Plug in the solenoid wires to the Pneumatics Hub ports//
 //REVPH  is a REV PNEUMATIC HUB//
 
 
